@@ -19,3 +19,15 @@ Quando for criar as 'Views', pode ser criado no mesmo esquema das aplicações p
 $(Project)/Views/Controller/Pagina.wtv
 
 Inclusive pode ser criado um arquivo Web.config na pasta 'Views' para configurações.
+
+Quanto aos outros tipos de recursos:
+
+Eu estou usando o 'EmbeddedResourceVirtualPathProvider' feito pelo @mcintyre321. Ele carrega os arquivos que estiverem em 'Embedded Resources'.
+
+Install-Package EmbeddedResourceVirtualPathProvider
+
+Vai ser adicionado um arquivo 'App_Start\RegisterVirtualPathProvider.cs', que deve ser executado no start da aplicação, no  'Global.asax'.
+
+Enfim, era isso aí.
+
+PS. Post em construção, vou fazer um projeto de teste.
