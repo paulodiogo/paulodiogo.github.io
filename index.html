@@ -147,6 +147,18 @@ Aí está uma coisa que a Microsoft faz bem (#FanBoyDetected), componentizar e d
 
 <p>Inclusive pode ser criado um arquivo Web.config na pasta &lsquo;Views&rsquo; para configurações.</p>
 
+<p>Quanto aos outros tipos de recursos:</p>
+
+<p>Eu estou usando o &lsquo;EmbeddedResourceVirtualPathProvider&rsquo; feito pelo @mcintyre321. Ele carrega os arquivos que estiverem em &lsquo;Embedded Resources&rsquo;.</p>
+
+<p>Install-Package EmbeddedResourceVirtualPathProvider</p>
+
+<p>Vai ser adicionado um arquivo &lsquo;App_Start\RegisterVirtualPathProvider.cs&rsquo;, que deve ser executado no start da aplicação, no  &lsquo;Global.asax&rsquo;.</p>
+
+<p>Enfim, era isso aí.</p>
+
+<p>PS. Post em construção, vou fazer um projeto de teste.</p>
+
 		
 		
 	</div>
