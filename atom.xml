@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo Diogo]]></title>
   <link href="http://paulodiogo.github.io/atom.xml" rel="self"/>
   <link href="http://paulodiogo.github.io/"/>
-  <updated>2015-02-13T00:12:00-02:00</updated>
+  <updated>2015-04-07T23:06:42-03:00</updated>
   <id>http://paulodiogo.github.io/</id>
   <author>
     <name><![CDATA[Paulo Diogo Rodrigues Leão de Almeida]]></name>
@@ -12,5 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[O ataque do Deus ASP MVC: componentizando entranhas e espólio]]></title>
+    <link href="http://paulodiogo.github.io/blog/2015/04/07/o-ataque-do-deus-asp-mvc-componentizando-entranhas-e-espolio/"/>
+    <updated>2015-04-07T22:55:17-03:00</updated>
+    <id>http://paulodiogo.github.io/blog/2015/04/07/o-ataque-do-deus-asp-mvc-componentizando-entranhas-e-espolio</id>
+    <content type="html"><![CDATA[<p>O ataque do Deus ASP MVC: componentizando entranhas e espólio</p>
+]]></content>
+  </entry>
   
 </feed>
