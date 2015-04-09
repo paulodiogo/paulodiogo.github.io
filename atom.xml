@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo Diogo]]></title>
   <link href="http://paulodiogo.github.io/atom.xml" rel="self"/>
   <link href="http://paulodiogo.github.io/"/>
-  <updated>2015-04-08T00:10:08-03:00</updated>
+  <updated>2015-04-08T21:32:44-03:00</updated>
   <id>http://paulodiogo.github.io/</id>
   <author>
     <name><![CDATA[Paulo Diogo Rodrigues Leão de Almeida]]></name>
@@ -28,7 +28,10 @@ Aí está uma coisa que a Microsoft faz bem (#FanBoyDetected), componentizar e d
 
 <p>Quando for criar as &lsquo;Views&rsquo;, pode ser criado no mesmo esquema das aplicações padrão:</p>
 
-<p>$(Project)/Views/Controller/Pagina.wtv</p>
+<figure class='code'><figcaption><span>Path </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$(Project)/Views/Controller/Pagina.wtv</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Inclusive pode ser criado um arquivo Web.config na pasta &lsquo;Views&rsquo; para configurações.</p>
 
@@ -36,7 +39,10 @@ Aí está uma coisa que a Microsoft faz bem (#FanBoyDetected), componentizar e d
 
 <p>Eu estou usando o &lsquo;EmbeddedResourceVirtualPathProvider&rsquo; feito pelo @mcintyre321. Ele carrega os arquivos que estiverem em &lsquo;Embedded Resources&rsquo;.</p>
 
-<p>Install-Package EmbeddedResourceVirtualPathProvider</p>
+<figure class='code'><figcaption><span>Instalando pacote </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Install-Package EmbeddedResourceVirtualPathProvider</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Vai ser adicionado um arquivo &lsquo;App_Start\RegisterVirtualPathProvider.cs&rsquo;, que deve ser executado no start da aplicação, no  &lsquo;Global.asax&rsquo;.</p>
 
