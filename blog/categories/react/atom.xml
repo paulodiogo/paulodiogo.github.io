@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: react | Paulo Diogo]]></title>
+  <link href="http://blog.paulodiogo.com/blog/categories/react/atom.xml" rel="self"/>
+  <link href="http://blog.paulodiogo.com/"/>
+  <updated>2019-11-06T19:29:46-03:00</updated>
+  <id>http://blog.paulodiogo.com/</id>
+  <author>
+    <name><![CDATA[Paulo Diogo Rodrigues Leão]]></name>
+    <email><![CDATA[opaulodiogo@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[#1 React drops]]></title>
+    <link href="http://blog.paulodiogo.com/blog/2019/11/06/react-drops-number-1/"/>
+    <updated>2019-11-06T19:19:23-03:00</updated>
+    <id>http://blog.paulodiogo.com/blog/2019/11/06/react-drops-number-1</id>
+    <content type="html"><![CDATA[<p>When I think of Web, I think of simple things, now I started thinking in React. Let start from the very beginning.</p>
+
+<p>The <a href="https://facebook.github.io/react/docs/why-react.html">why</a> to use React the people on Facebook already <a href="https://facebook.github.io/react/docs/why-react.html">answered</a>, then I will write code!</p>
+
+<p>The minimum code example is the following:</p>
+
+<p><p class="codepen"  data-embed-version="2" data-slug-hash="dGeyxq" data-height="300" data-theme-id="14691" data-default-tab="js">
+  See the Pen <a href="//codepen.io/pen/dGeyxq">dGeyxq</a>
+  by Paulo Diogo (<a href="//codepen.io/paulodiogo">paulodiogo</a>)
+  on <a href="//codepen.io">CodePen</a>.
+</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+</p>
+
+<p>This code is very simple, but shows the power of React, and we are rendering an element inside a container in the DOM. The <a href="https://facebook.github.io/react/docs/top-level-api.html#reactdom.render">render method</a> will render or update in the element, and you can provide a callback that will be called after the element is rendered or updated.</p>
+
+<p><a href="https://open.spotify.com/track/5wHOilOuvmCoMaVtL73rlF">♫</a></p>
+]]></content>
+  </entry>
+  
+</feed>
