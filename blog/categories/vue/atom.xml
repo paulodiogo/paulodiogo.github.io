@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Paulo Diogo]]></title>
-  <link href="http://blog.paulodiogo.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: vue | Paulo Diogo]]></title>
+  <link href="http://blog.paulodiogo.com/blog/categories/vue/atom.xml" rel="self"/>
   <link href="http://blog.paulodiogo.com/"/>
   <updated>2019-11-06T14:06:27-03:00</updated>
   <id>http://blog.paulodiogo.com/</id>
@@ -12,84 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[[Redux] Derived data]]></title>
-    <link href="http://blog.paulodiogo.com/blog/2019/11/06/redux-derived-data/"/>
-    <updated>2019-11-06T13:50:30-03:00</updated>
-    <id>http://blog.paulodiogo.com/blog/2019/11/06/redux-derived-data</id>
-    <content type="html"><![CDATA[<p>Reducer:</p>
-
-<pre><code class="javascript ">const emprestimo = (
-  state = {
-    numeroMeses: new BigNumber(36),
-    taxa: new BigNumber(1.82),
-    valorPrestacao: new BigNumber(304),
-    valorFinanciado: new BigNumber(10000)
-  },
-  action
-) =&gt; {
-  switch (action.type) {
-    case "NUMERO_MESES":
-      return { ...state, numeroMeses: action.numeroMeses };
-    case "TAXA":
-      return { ...state, taxa: action.taxa };
-    case "VALOR_PRESTACAO":
-      return { ...state, valorPrestacao: action.valorPrestacao };
-    case "VALOR_FINANCIADO":
-      return { ...state, valorFinanciado: action.valorFinanciado };
-    default:
-      return state;
-  }
-};
-</code></pre>
-
-<p>How to calculate the result values?</p>
-
-<p>Create a selector, using reselect!</p>
-
-<pre><code class="javascript">
-const valores = state =&gt; state;
-
-const derivados = createSelector(valores, state =&gt; {
-  ///calculate the total...
-
-  return {
-    total: total
-  };
-});
-</code></pre>
-
-<p>With the <code>selector</code> we need to conect with the <code>reducers</code>:</p>
-
-<pre><code class="javascript">
-const mapStateToProps = state =&gt; {
-  return {
-    derivados: derivados(state)
-  };
-};
-
-connect(mapStateToProps)(CalculoPrestacao);
-</code></pre>
-
-<p>To use, just do the normal things:</p>
-
-<pre><code class="javascript">const {    
-    derivados
-} = state;
-
-&lt;CalculoPrestacao derivados={derivados} /&gt;
-
-&lt;Resultado derivados={this.props.derivados} /&gt;
-</code></pre>
-
-<pre><code class="javascript">const { createSelector } = Reselect;
-const { connect } = ReactRedux;
-</code></pre>
-
-<p><a href="https://redux.js.org/recipes/computing-derived-data">Documentação</a></p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vue, Vuetify and v-model.lazy]]></title>
@@ -304,39 +226,6 @@ methods: {
             }
         },
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[O ataque do Deus ASP MVC: componentizando entranhas e espólio]]></title>
-    <link href="http://blog.paulodiogo.com/blog/2015/04/07/o-ataque-do-deus-asp-mvc-componentizando-entranhas-e-espolio/"/>
-    <updated>2015-04-07T22:55:17-03:00</updated>
-    <id>http://blog.paulodiogo.com/blog/2015/04/07/o-ataque-do-deus-asp-mvc-componentizando-entranhas-e-espolio</id>
-    <content type="html"><![CDATA[<p>O ASP MVC é realmente um Deus hoje em dia. É venerado por todos os desenvolvedores .NET e muitos de outros mundos.
-Sem muitas delongas, qual o objetivo, componentizar com ASP MVC. Para muitos deve ser trivial, mas nunca tinha feito isso. Já havia feito sistemas em ASP MVC, mas não um componente. Com dezenas de possíveis clientes.
-Aí está uma coisa que a Microsoft faz bem (#FanBoyDetected), componentizar e deixar a nossa vida mais tranquila, não mais fácil.</p>
-
-<p>É muito fácil reusar em ASP MVC. No meu caso, criei uma ‘class library’ e adicionei as referências que eu iria usar (via nuget).</p>
-
-<p>No caso de páginas, scripts, css etc, segue o rito de sempre, criar o que se quer e marcar ele como &lsquo;Embedded Resources&rsquo;.</p>
-
-<p>Quando for criar as &lsquo;Views&rsquo;, pode ser criado no mesmo esquema das aplicações padrão:</p>
-
-<p>$(Project)/Views/Controller/Pagina.wtv</p>
-
-<p>Inclusive pode ser criado um arquivo Web.config na pasta &lsquo;Views&rsquo; para configurações.</p>
-
-<p>Quanto aos outros tipos de recursos:</p>
-
-<p>Eu estou usando o &lsquo;EmbeddedResourceVirtualPathProvider&rsquo; feito pelo @mcintyre321. Ele carrega os arquivos que estiverem em &lsquo;Embedded Resources&rsquo;.</p>
-
-<p>Install-Package EmbeddedResourceVirtualPathProvider</p>
-
-<p>Vai ser adicionado um arquivo &lsquo;App_Start\RegisterVirtualPathProvider.cs&rsquo;, que deve ser executado no start da aplicação, no  &lsquo;Global.asax&rsquo;.</p>
-
-<p>Enfim, era isso aí.</p>
-
-<p>PS. Post em construção, vou fazer um projeto de teste.</p>
 ]]></content>
   </entry>
   
