@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo Diogo]]></title>
   <link href="http://blog.paulodiogo.com/atom.xml" rel="self"/>
   <link href="http://blog.paulodiogo.com/"/>
-  <updated>2019-11-06T13:41:58-03:00</updated>
+  <updated>2019-11-06T13:44:53-03:00</updated>
   <id>http://blog.paulodiogo.com/</id>
   <author>
     <name><![CDATA[Paulo Diogo Rodrigues Leão de Almeida]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vue slots #1]]></title>
+    <link href="http://blog.paulodiogo.com/blog/2019/11/06/vue-slots-number-1/"/>
+    <updated>2019-11-06T13:43:55-03:00</updated>
+    <id>http://blog.paulodiogo.com/blog/2019/11/06/vue-slots-number-1</id>
+    <content type="html"><![CDATA[<p>When you want to create a component that has dynamic child, that&rsquo;s a case to use the [<code>&lt;slot&gt;</code>] (<a href="https://vuejs.org/v2/guide/components-slots.html">https://vuejs.org/v2/guide/components-slots.html</a>) There are many other cases, but this one is beautiful.</p>
+
+<p>I needed that the title of a <a href="https://getbootstrap.com/docs/4.3/components/card/#header-and-footer">card</a> had a dynamic text based on a certain condition, like: if the application has a context, show the label of the context.</p>
+
+<pre><code>Vue.component("personal-title-card", {
+    template: `
+    &lt;div&gt;
+        &lt;div class="float-left"&gt;
+            &lt;slot&gt;&lt;/slot&gt;
+        &lt;/div&gt;                      
+        &lt;div class="float-right"&gt;
+            &lt;strong&gt;&lt;/strong&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;`,
+    computed: {
+        ...mapGetters(["contextLabel"])
+    }
+});
+</code></pre>
+
+<p>To use is as simple as that:</p>
+
+<p><code>&lt;personal-title-card&gt;Accumsan massa elementum.&lt;/personal-title-card&gt;</code></p>
+
+<p>According to the <a href="https://br.vuejs.org/v2/guide/components-slots.html">documentation</a>:</p>
+
+<blockquote><p>A <code>&lt;slot&gt;</code> outlet without name implicitly has the name “default”.</p></blockquote>
+
+<p>You can name a <a href="https://vuejs.org/v2/guide/components-slots.html#Named-Slots"><code>&lt;slot&gt;</code></a> like:</p>
+
+<pre><code>Vue.component("personal-title-card-2", {
+    template: `
+    &lt;div&gt;
+        &lt;div class="float-left"&gt;
+            &lt;slot name="text"&gt;&lt;/slot&gt;
+        &lt;/div&gt;                      
+        &lt;div class="float-right"&gt;
+            &lt;strong&gt;&lt;/strong&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;`,
+    computed: {
+        ...mapGetters(["contextLabel"])
+    }
+});
+</code></pre>
+
+<p>Again, to use is as simple as that:</p>
+
+<pre><code>&lt;personal-title-card&gt;
+  &lt;template v-slot:text&gt;
+    Accumsan massa elementum.
+  &lt;/template&gt;
+&lt;/personal-title-card&gt;
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vue components with internal data]]></title>
