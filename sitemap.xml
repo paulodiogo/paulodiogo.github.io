@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://blog.paulodiogo.com/blog/2019/11/06/vue-components-with-internal-data/</loc>
+<lastmod>2019-11-06T13:35:26-03:00</lastmod>
+</url>
+<url>
 <loc>http://blog.paulodiogo.com/blog/2015/04/07/o-ataque-do-deus-asp-mvc-componentizando-entranhas-e-espolio/</loc>
 <lastmod>2015-04-07T22:55:17-03:00</lastmod>
 </url>

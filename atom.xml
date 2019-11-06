@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo Diogo]]></title>
   <link href="http://blog.paulodiogo.com/atom.xml" rel="self"/>
   <link href="http://blog.paulodiogo.com/"/>
-  <updated>2019-11-06T13:28:26-03:00</updated>
+  <updated>2019-11-06T13:41:58-03:00</updated>
   <id>http://blog.paulodiogo.com/</id>
   <author>
     <name><![CDATA[Paulo Diogo Rodrigues Leão de Almeida]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vue components with internal data]]></title>
+    <link href="http://blog.paulodiogo.com/blog/2019/11/06/vue-components-with-internal-data/"/>
+    <updated>2019-11-06T13:35:26-03:00</updated>
+    <id>http://blog.paulodiogo.com/blog/2019/11/06/vue-components-with-internal-data</id>
+    <content type="html"><![CDATA[<p>When you write <a href="https://br.vuejs.org/v2/guide/components.html">components</a> in vue you sometimes need some internal data in each component, to handle internal behavior.</p>
+
+<p>Like when I had a problem with formating numeric texts.</p>
+
+<p>The component was rendered correctly, but, the first time the user entered the input the format was lost.</p>
+
+<p>I realized that the <a href="https://br.vuejs.org/v2/guide/components-edge-cases.html#Acessando-Instancias-de-Componentes-e-Elementos-Filhos"><code>$refs</code></a> was undefined and the format function was called again only when the user typed a value and the event <code>input</code> was fired.</p>
+
+<p>So I added a internal data that was changed when the component was <a href="https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram">mounted</a> and this behavior disappeared.</p>
+
+<p>First add the data in the component:</p>
+
+<pre><code>data: function () {
+    return { mounted: false }
+},
+</code></pre>
+
+<p>And changed the value in <code>mounted</code> method:</p>
+
+<pre><code>mounted() {      
+    this.mounted = true;
+},
+</code></pre>
+
+<p>And changed my <code>computed</code> value to check the value of the data:</p>
+
+<pre><code> computed: {
+        awesomeValue: {
+            get: function () {
+
+
+                //HERE I CHECK THE VALUE
+                if (!this.mounted) {
+                    return;
+                }
+
+                //... DO THINGS TO GET VALUE
+
+                return valor;
+            },
+            set: function (value) {
+
+                //... DO THINGS TO SET VALUE
+
+            }
+        },
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[O ataque do Deus ASP MVC: componentizando entranhas e espólio]]></title>
