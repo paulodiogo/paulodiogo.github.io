@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Vue, Vuetify and v-model.lazy"
+date: 2019-11-06 13:50:14 -0300
+comments: true
+categories: 
+---
+In [Vue.js](https://vuejs.org) you can use [v-model](https://br.vuejs.org/v2/api/#v-model) to bind values in your form. That is, when you [type](https://javascript.info/events-change-input#event-input) the value is changed on the state (input event). When you whant to wait the user get out of the control, you can use the [modifier](https://vuejs.org/v2/guide/forms.html#Modifiers) [.lazy](https://vuejs.org/v2/guide/forms.html#lazy), then the event **[change](https://javascript.info/events-change-input#event-change)** will be used instead.
+
+[But the world is cruel](https://github.com/vuejs/vue/issues/5743) and when you use a custom component like [Vuetifyjs](https://vuetifyjs.com) you need to use a [different approach](https://github.com/vuetifyjs/vuetify/issues/1810). You need to use `:value` and `@change` manually.
+
+Example:
+
+~~~
+
+<v-text-field  label="Price"
+    :value="price"
+    @change="value => price = value">      
+</v-text-field>
+
+~~~
