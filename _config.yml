@@ -5,7 +5,7 @@
 url: http://blog.paulodiogo.com
 title: Paulo Diogo
 subtitle: Blogando coisas.
-author: Paulo Diogo Rodrigues Leão de Almeida
+author: Paulo Diogo Rodrigues Leão
 simple_search: https://www.google.com/search
 description: Blogando coisas.
 
@@ -19,7 +19,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email: paulodiogodm@gmail.com
+email: opaulodiogo@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -79,8 +79,8 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user: paulodiogodm
-googleplus_hidden: false
+googleplus_user: opaulodiogo
+googleplus_hidden: true
 
 # Pinboard
 pinboard_user:
