@@ -3,7 +3,7 @@ layout: post
 title: "[Redux] Derived data"
 date: 2019-11-06 13:50:30 -0300
 comments: true
-categories: 
+categories: [redux]
 ---
 Reducer:
 

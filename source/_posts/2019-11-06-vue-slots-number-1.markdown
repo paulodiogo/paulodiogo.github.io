@@ -3,7 +3,7 @@ layout: post
 title: "Vue slots #1"
 date: 2019-11-06 13:43:55 -0300
 comments: true
-categories: 
+categories:  [vue, vuejs]
 ---
 When you want to create a component that has dynamic child, that's a case to use the [`<slot>`](https://vuejs.org/v2/guide/components-slots.html) There are many other cases, but this one is beautiful.
 

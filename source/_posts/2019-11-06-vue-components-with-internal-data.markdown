@@ -3,7 +3,7 @@ layout: post
 title: "Vue components with internal data"
 date: 2019-11-06 13:35:26 -0300
 comments: true
-categories: 
+categories: [vue, vuejs]
 ---
 When you write [components](https://br.vuejs.org/v2/guide/components.html) in vue you sometimes need some internal data in each component, to handle internal behavior.
 

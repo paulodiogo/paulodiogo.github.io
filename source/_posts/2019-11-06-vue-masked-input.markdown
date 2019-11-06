@@ -3,7 +3,7 @@ layout: post
 title: "Vue masked input"
 date: 2019-11-06 13:50:00 -0300
 comments: true
-categories: 
+categories:  [vue, vuejs, vuetify]
 ---
 There are many excelent [components](https://github.com/vuejs/awesome-vue#masked-input) to get a [masked input](https://en.wikipedia.org/wiki/Input_mask) when you are using vuejs. But, I could not find one that fill all my requisites.
 
