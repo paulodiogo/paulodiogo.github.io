@@ -5,11 +5,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Blog Archives - Paulo Diogo</title>
+	<title>Vue masked input - Paulo Diogo</title>
 	<meta name="author" content="Paulo Diogo Rodrigues Leão de Almeida">
 
 	
-	<meta name="description" content="2019 Nov 6 [Redux] Derived data Nov 6 Vue, Vuetify and v-model.lazy Nov 6 Vue masked input Nov 6 Vue slots #1 Nov 6 Vue components with internal &hellip;">
+	<meta name="description" content="Vue Masked Input There are many excelent components to get a masked input when you are using vuejs. But, I could not find one that fill all my &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="Paulo Diogo" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://blog.paulodiogo.com/blog/archives/">
+	<link rel="canonical" href="http://blog.paulodiogo.com/blog/2019/11/06/vue-masked-input/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -109,110 +109,103 @@
 				
 			
 			<div class="mid-col-container">
-				<div id="content" class="inner"><div itemscope itemtype="http://schema.org/Blog">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Vue Masked Input</h1>
+	<div class="entry-content" itemprop="articleBody"><p>There are many excelent <a href="https://github.com/vuejs/awesome-vue#masked-input">components</a> to get a <a href="https://en.wikipedia.org/wiki/Input_mask">masked input</a> when you are using vuejs. But, I could not find one that fill all my requisites.</p>
 
-	
+<p>I have use the following aproach:</p>
 
+<p>I used the <a href="https://github.com/the-darc/string-mask">string-mask</a> component to format the values;
+Write the <code>get</code> and <code>set</code> for the value of the input; and
+Write one method to verify if the value typed is an number.</p>
 
-	
-	
-	<section class="archives"><h1 class="year">2019</h1>
+<p>GET:</p>
 
-<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<span class="date"><time datetime="2019-11-06T13:50:30-03:00" itemprop="datePublished">Nov  6</time></span>
-		<br>
-		<span class="tags">
+<pre><code class="javascript">
+    get() {
+        const valuePrice = state.price;
+        const formatter = new StringMask(state.maskinput, {
+            reverse: true
+        });
+        let result = "";
+        if (valuePrice !== "" &amp;&amp; valuePrice != null) {
+            result = formatter.apply(valuePrice.toString().replace(/[^0-9]/g, ""));
+        }
+        return result;
+    }
+</code></pre>
 
-</span>
-	    
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2019/11/06/redux-derived-data/">[Redux] Derived data</a></h1>
+<p>SET:</p>
+
+<pre><code class="javascript">set(value) {
+    const formatter = new StringMask(state.mascara, {
+        reverse: true
+    });
+
+    const normalized = value.replace(/[^0-9]/g, "");
+
+    let result = "";
+
+    if (normalized !== "" &amp;&amp; normalized !== null) {
+        result = formatter.apply(normalized);
+    }
+
+    if (result === "0" || result === "0,00") {
+        result = null;
+    }
+
+    state.price = result;
+}
+</code></pre>
+
+<p>Verify if is number:</p>
+
+<pre><code class="javascript">
+methods: {
+    isNumber: function (evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if ((charCode &gt; 31 &amp;&amp; (charCode &lt; 48 || charCode &gt; 57)) &amp;&amp; charCode !== 46) {
+            evt.preventDefault();;
+        } else {
+            return true;
+        }
+    }
+},
+</code></pre>
+
+<p>To use:</p>
+
+<pre><code class="javascript">
+@keypress="isNumber($event)"
+:value="valor" @input="value =&gt; valor = value"
+</code></pre>
+
+<p>We can add a default value, in my case, I cannot allow a zero value.</p>
+</div>
+
 </article>
 
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 	
-
-
-<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<span class="date"><time datetime="2019-11-06T13:50:14-03:00" itemprop="datePublished">Nov  6</time></span>
-		<br>
-		<span class="tags">
-
-</span>
-	    
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
 	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2019/11/06/vue/">Vue, Vuetify and v-model.lazy</a></h1>
-</article>
-
-	
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
 
 
-<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<span class="date"><time datetime="2019-11-06T13:50:00-03:00" itemprop="datePublished">Nov  6</time></span>
-		<br>
-		<span class="tags">
 
-</span>
-	    
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2019/11/06/vue-masked-input/">Vue masked input</a></h1>
-</article>
-
-	
-
-
-<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<span class="date"><time datetime="2019-11-06T13:43:55-03:00" itemprop="datePublished">Nov  6</time></span>
-		<br>
-		<span class="tags">
-
-</span>
-	    
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2019/11/06/vue-slots-number-1/">Vue slots #1</a></h1>
-</article>
-
-	
-
-
-<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<span class="date"><time datetime="2019-11-06T13:35:26-03:00" itemprop="datePublished">Nov  6</time></span>
-		<br>
-		<span class="tags">
-
-</span>
-	    
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2019/11/06/vue-components-with-internal-data/">Vue components with internal data</a></h1>
-</article>
-
-	
-
-
-	
-	
-		</section>
-	
-	<section class="archives"><h1 class="year">2015</h1>
-
-<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<span class="date"><time datetime="2015-04-07T22:55:17-03:00" itemprop="datePublished">Apr  7</time></span>
-		<br>
-		<span class="tags">
-
-</span>
-	    
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2015/04/07/o-ataque-do-deus-asp-mvc-componentizando-entranhas-e-espolio/">O ataque do Deus ASP MVC: componentizando entranhas e espólio</a></h1>
-</article>
-
-  </section>
-</div></div>
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
 			</div>
 			<footer id="footer" class="inner">Copyright &copy; 2019
 
@@ -228,7 +221,10 @@ Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Sha
       var disqus_shortname = 'paulodiogo';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.paulodiogo.com/blog/2019/11/06/vue-masked-input/';
+        var disqus_url = 'http://blog.paulodiogo.com/blog/2019/11/06/vue-masked-input/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

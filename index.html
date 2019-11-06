@@ -9,7 +9,7 @@
 	<meta name="author" content="Paulo Diogo Rodrigues Leão de Almeida">
 
 	
-	<meta name="description" content="Vue Slots #1 When you want to create a component that has dynamic child, that&rsquo;s a case to use the &lt;slot&gt; There are many other cases, but &hellip;">
+	<meta name="description" content="[Redux] Derived Data Reducer: const emprestimo = ( state = { numeroMeses: new BigNumber(36), taxa: new BigNumber(1.82), valorPrestacao: new &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -111,6 +111,248 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2019-11-06T13:50:30-03:00" data-updated="true" itemprop="datePublished"></time></div>
+		<div class="tags">
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2019/11/06/redux-derived-data/" itemprop="url">[Redux] Derived Data</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Reducer:</p>
+
+<pre><code class="javascript ">const emprestimo = (
+  state = {
+    numeroMeses: new BigNumber(36),
+    taxa: new BigNumber(1.82),
+    valorPrestacao: new BigNumber(304),
+    valorFinanciado: new BigNumber(10000)
+  },
+  action
+) =&gt; {
+  switch (action.type) {
+    case "NUMERO_MESES":
+      return { ...state, numeroMeses: action.numeroMeses };
+    case "TAXA":
+      return { ...state, taxa: action.taxa };
+    case "VALOR_PRESTACAO":
+      return { ...state, valorPrestacao: action.valorPrestacao };
+    case "VALOR_FINANCIADO":
+      return { ...state, valorFinanciado: action.valorFinanciado };
+    default:
+      return state;
+  }
+};
+</code></pre>
+
+<p>How to calculate the result values?</p>
+
+<p>Create a selector, using reselect!</p>
+
+<pre><code class="javascript">
+const valores = state =&gt; state;
+
+const derivados = createSelector(valores, state =&gt; {
+  ///calculate the total...
+
+  return {
+    total: total
+  };
+});
+</code></pre>
+
+<p>With the <code>selector</code> we need to conect with the <code>reducers</code>:</p>
+
+<pre><code class="javascript">
+const mapStateToProps = state =&gt; {
+  return {
+    derivados: derivados(state)
+  };
+};
+
+connect(mapStateToProps)(CalculoPrestacao);
+</code></pre>
+
+<p>To use, just do the normal things:</p>
+
+<pre><code class="javascript">const {    
+    derivados
+} = state;
+
+&lt;CalculoPrestacao derivados={derivados} /&gt;
+
+&lt;Resultado derivados={this.props.derivados} /&gt;
+</code></pre>
+
+<pre><code class="javascript">const { createSelector } = Reselect;
+const { connect } = ReactRedux;
+</code></pre>
+
+<p><a href="https://redux.js.org/recipes/computing-derived-data">Documentação</a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2019-11-06T13:50:14-03:00" data-updated="true" itemprop="datePublished"></time></div>
+		<div class="tags">
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2019/11/06/vue/" itemprop="url">Vue, Vuetify and v-model.lazy</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>In <a href="https://vuejs.org">Vue.js</a> you can use <a href="https://br.vuejs.org/v2/api/#v-model">v-model</a> to bind values in your form. That is, when you <a href="https://javascript.info/events-change-input#event-input">type</a> the value is changed on the state (input event). When you whant to wait the user get out of the control, you can use the <a href="https://vuejs.org/v2/guide/forms.html#Modifiers">modifier</a> <a href="https://vuejs.org/v2/guide/forms.html#lazy">.lazy</a>, then the event <strong><a href="https://javascript.info/events-change-input#event-change">change</a></strong> will be used instead.</p>
+
+<p><a href="https://github.com/vuejs/vue/issues/5743">But the world is cruel</a> and when you use a custom component like <a href="https://vuetifyjs.com">Vuetifyjs</a> you need to use a <a href="https://github.com/vuetifyjs/vuetify/issues/1810">different approach</a>. You need to use <code>:value</code> and <code>@change</code> manually.</p>
+
+<p>Example:
+<del>html
+    <v-text-field  label="Price"
+      :value="price"
+      @change="value => price = value&#8221;>    <br/>
+    </v-text-field>
+</del></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2019-11-06T13:50:00-03:00" data-updated="true" itemprop="datePublished"></time></div>
+		<div class="tags">
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2019/11/06/vue-masked-input/" itemprop="url">Vue Masked Input</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>There are many excelent <a href="https://github.com/vuejs/awesome-vue#masked-input">components</a> to get a <a href="https://en.wikipedia.org/wiki/Input_mask">masked input</a> when you are using vuejs. But, I could not find one that fill all my requisites.</p>
+
+<p>I have use the following aproach:</p>
+
+<p>I used the <a href="https://github.com/the-darc/string-mask">string-mask</a> component to format the values;
+Write the <code>get</code> and <code>set</code> for the value of the input; and
+Write one method to verify if the value typed is an number.</p>
+
+<p>GET:</p>
+
+<pre><code class="javascript">
+    get() {
+        const valuePrice = state.price;
+        const formatter = new StringMask(state.maskinput, {
+            reverse: true
+        });
+        let result = "";
+        if (valuePrice !== "" &amp;&amp; valuePrice != null) {
+            result = formatter.apply(valuePrice.toString().replace(/[^0-9]/g, ""));
+        }
+        return result;
+    }
+</code></pre>
+
+<p>SET:</p>
+
+<pre><code class="javascript">set(value) {
+    const formatter = new StringMask(state.mascara, {
+        reverse: true
+    });
+
+    const normalized = value.replace(/[^0-9]/g, "");
+
+    let result = "";
+
+    if (normalized !== "" &amp;&amp; normalized !== null) {
+        result = formatter.apply(normalized);
+    }
+
+    if (result === "0" || result === "0,00") {
+        result = null;
+    }
+
+    state.price = result;
+}
+</code></pre>
+
+<p>Verify if is number:</p>
+
+<pre><code class="javascript">
+methods: {
+    isNumber: function (evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if ((charCode &gt; 31 &amp;&amp; (charCode &lt; 48 || charCode &gt; 57)) &amp;&amp; charCode !== 46) {
+            evt.preventDefault();;
+        } else {
+            return true;
+        }
+    }
+},
+</code></pre>
+
+<p>To use:</p>
+
+<pre><code class="javascript">
+@keypress="isNumber($event)"
+:value="valor" @input="value =&gt; valor = value"
+</code></pre>
+
+<p>We can add a default value, in my case, I cannot allow a zero value.</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">

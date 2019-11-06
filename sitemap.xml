@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://blog.paulodiogo.com/blog/2019/11/06/redux-derived-data/</loc>
+<lastmod>2019-11-06T13:50:30-03:00</lastmod>
+</url>
+<url>
+<loc>http://blog.paulodiogo.com/blog/2019/11/06/vue/</loc>
+<lastmod>2019-11-06T13:50:14-03:00</lastmod>
+</url>
+<url>
+<loc>http://blog.paulodiogo.com/blog/2019/11/06/vue-masked-input/</loc>
+<lastmod>2019-11-06T13:50:00-03:00</lastmod>
+</url>
+<url>
 <loc>http://blog.paulodiogo.com/blog/2019/11/06/vue-slots-number-1/</loc>
 <lastmod>2019-11-06T13:43:55-03:00</lastmod>
 </url>
